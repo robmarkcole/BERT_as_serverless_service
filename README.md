@@ -24,13 +24,30 @@ Note: upload the processed.csv file, which the training data
 ### Architecture
 ![api](img/new_API.png)
 
+## Build and test locally
+```
+docker build -t logbert-lambda .
+docker run -p 8080:8080 logbert-lambda
+```
+
 
 ## API results
+Test in postman:
+- POST to `http://localhost:8080/2015-03-31/functions/function/invocations` with body: 
+
+```
+{
+    "log": "I brought bread and eggs today"
+}
+```
+
 ![response](img/resp.png)
 
 ## Tutorial
 
-For complete tutorial please read my medium blog
+For complete tutorial please read [deploying-pytorch-model-as-a-serverless-servic](https://medium.com/geekculture/deploying-pytorch-model-as-a-serverless-service-339b4b93e517)
 
-[![tutorial](img/medium.svg)](https://medium.com/geekculture/deploying-pytorch-model-as-a-serverless-service-339b4b93e517)
-
+## Issues
+* Had to unpin dependencies due to conflicts
+* Require `pytorch_model.bin`
+* Cannot list external agents error=open /opt/extensions: no such file or directory
