@@ -127,3 +127,6 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+.DS_Store
+model/pytorch_model.bin
+input/prunebert-base-uncased-6-finepruned-w-distil-squad/

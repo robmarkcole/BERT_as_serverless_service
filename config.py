@@ -8,7 +8,7 @@ NUM_CLASSES = 5
 DEVICE = torch.device('cuda') if torch.cuda.is_available() else torch.device('cpu')
 
 EPOCHS = 2
-BERT_PATH = './input/bert-base-uncased/'
+BERT_PATH = './input/prunebert-base-uncased-6-finepruned-w-distil-squad'
 MODEL_PATH = './model/pytorch_model.bin'
 TRAINING_FILE = './input/processed.csv'
 CLASS_NAME = ['food', 'transport', 'shopping', 'bills', 'credit']

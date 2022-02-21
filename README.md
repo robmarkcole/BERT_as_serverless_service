@@ -1,7 +1,7 @@
 ![baas](img/baas.png)
 
 <h3 style="text-align:center; font-weight: bold">
- Serve PyTorch model as an API using AWS + serverless framework
+ Serve PyTorch model as an API using AWS + serverless framework. Requires `pytorch_model.bin` which must be created by training and downloaded here (438 MB file)
 </h3>
 
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
@@ -49,5 +49,17 @@ For complete tutorial please read [deploying-pytorch-model-as-a-serverless-servi
 
 ## Issues
 * Had to unpin dependencies due to conflicts
-* Require `pytorch_model.bin`
-* Cannot list external agents error=open /opt/extensions: no such file or directory
+* Cannot list external agents error=open /opt/extensions: no such file or directory -> add the .bin file
+* "errorMessage": "Can't load tokenizer for './input/bert-base-uncased/' -> need to clone the model in `input` dir, consists of some json files. Also see https://github.com/huggingface/transformers/issues/353
+
+
+## Troubleshooting
+Use `docker ps` to get the name of the existing container.
+Use the command `docker exec -it <container name> /bin/bash`
+
+## Local dev - no docker
+## Usage
+* `python3 -m venv venv`
+* `source venv/bin/activate`
+* `pip install -r requirements.txt`
+* `python3 inference.py`
